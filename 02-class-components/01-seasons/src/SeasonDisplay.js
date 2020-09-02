@@ -11,12 +11,17 @@ const getSeason = (lat, month) => {
 
 const SeasonDisplay = (props) => {
   const season = getSeason(props.lat, new Date().getMonth());
+  // example of ternary expression, result is put to text var
   const text =
     season === 'winter' ? 'Burr, it is chilly' : 'Lets hit the beach';
+  // get name of font-awesome icon that correspond with season
+  const icon = season === 'winter' ? 'snowflake' : 'sun';
   // console.log(season);
   return (
     <div>
+      <i className={`${icon} icon`} />
       <h1>{text}</h1>
+      <i className={`${icon} icon`} />
     </div>
   );
 };
