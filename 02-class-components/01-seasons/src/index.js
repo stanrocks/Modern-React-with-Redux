@@ -32,8 +32,7 @@ class App extends React.Component {
     );
   }
 
-  // conditional rendering
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -43,6 +42,11 @@ class App extends React.Component {
     }
 
     return <Spinner message="Please accept location request" />;
+  }
+
+  // conditional rendering
+  render() {
+    return <div className="border red">{this.renderContent()}</div>;
   }
 }
 ReactDOM.render(<App />, document.querySelector('#root'));
