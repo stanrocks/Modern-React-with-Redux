@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 //   return <div>Hi there!</div>;
 // };
 
-// es15 version
+// es2015 version
 const App = () => {
   return <div>Hi there!</div>;
 };
