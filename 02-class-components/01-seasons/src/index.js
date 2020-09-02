@@ -14,10 +14,13 @@ import ReactDOM from 'react-dom';
 
 // ====== class-based component ======
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { lat: null, errorMessage: '' };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { lat: null, errorMessage: '' };
+  // }
+
+  // alternative way to initialize state (equivalent to constructor above)
+  state = { lat: null, errorMessage: '' };
 
   // proper place to call functions that load data
   componentDidMount() {
