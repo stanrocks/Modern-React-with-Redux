@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import unsplash from '../api/unsplash';
 import SearchBar from './SearchBar';
 
 class App extends React.Component {
@@ -8,12 +8,9 @@ class App extends React.Component {
   // that function is passing down to a child (search bar) as a prop
   onSearchSubmit = async (term) => {
     // console.log(term);
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
+    const response = await unsplash.get('/search/photos', {
       params: {
         query: term,
-      },
-      headers: {
-        Authorization: 'Client-ID XuNzyZOVv6xRMZ2bCmpqEi5J7PsUJhXpvn8sSH305lE',
       },
     });
 
