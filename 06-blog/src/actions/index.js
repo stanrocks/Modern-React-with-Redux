@@ -1,10 +1,15 @@
 import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
-export const fetchPostsAndUsers = () => async (dispatch) => {
-  console.log('About to fetch posts!');
+export const fetchPostsAndUsers = () => async (dispatch, getState) => {
+  // console.log('About to fetch posts!');
   await dispatch(fetchPosts());
-  console.log('Fetched posts!');
+  // console.log('Fetched posts!');
+  // console.log('All posts:', getState().posts);
+  // 'map' gets only userId property from all posts. then 'uniq' filters output:
+  const userIds = _.uniq(_.map(getState().posts, 'userId'));
+  // console.log('All unique IDs:', userIds);
+  userIds.forEach((id) => dispatch(fetchUser(id)));
 };
 
 export const fetchPosts = () => async (dispatch) => {
